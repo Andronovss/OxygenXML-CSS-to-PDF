@@ -1,0 +1,240 @@
+/* The baseline style */
+
+:root {
+    font-family: Arial, Sans-Serif !important;
+    font-size: 10pt;
+    widows: 3;
+    orphans: 3;
+    font-size: 10pt;
+    line-height: 1.2;
+    color: #000000;
+    font-style: normal;
+}
+
+
+front-matter > *[class ~= "topic/topic"] > *[class ~= "topic/title"] {
+    color:#4900db;
+    font-size: 24pt;
+    line-height: 60%;
+    padding-bottom: 1em;
+    border: none !important;
+}
+
+/* Settings for the left and right pages in the book */
+@page chapter {
+    -oxy-initial-page-number: auto-odd;
+    }
+    
+    @page chapter:first:left {
+    	@top-left {
+            content: url("");
+            image-resolution: 200dpi;
+            vertical-align: bottom;
+    	}
+    }
+    @page chapter:first:right {
+    	@top-right {
+            content: url("");
+            image-resolution: 200dpi;
+            vertical-align: bottom;
+    	}
+    }
+
+@page :left {
+    border-top: solid black 1pt;
+    border-bottom: solid black 1pt;
+    /* Margins/paddings: top-right-bottom-left */
+    padding-top: 12mm;
+    padding-bottom: 6mm;
+    margin: 12mm 12mm 12mm 30mm;
+        @bottom-left {
+            content: counter(page);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-left: -1em;
+        }
+         @top-left {
+            content: url("");
+            image-resolution: 200dpi;
+            vertical-align: bottom;
+        }
+        @top-right {
+            content: string(chaptertitle) string(sectiontitle);
+            font-size:8pt;
+            font-family : "Arial", Sans-Serif;
+            vertical-align: bottom;
+        }
+           }
+
+    @page :right {
+    border-top: solid black 1pt;
+    border-bottom: solid black 1pt;
+    padding-top: 12mm;
+    padding-bottom: 6mm;
+    margin: 12mm 30mm 12mm 12mm;
+        @top-left {
+        content: string(chaptertitle) string(sectiontitle);
+        font-size:8pt;
+        font-family : "Arial", Sans-Serif;
+        vertical-align: bottom;
+        }
+        @top-right {
+        content: url("");
+        image-resolution: 200dpi;
+        vertical-align: bottom;
+        }
+    @bottom-right {
+            content: counter(page);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-right: -1em;
+        }
+    }
+    
+    /* Frontmatter and Backmatter pages */
+  @page matter-page {
+        @top-left-corner    {          content:none }
+        @top-left           {          content:none }
+        @top-center         {          content:none }
+        @top-right          {          content:none }
+        @top-right-corner   {          content:none }
+        @bottom-left-corner {          content:none }
+        @bottom-left        {          content:none }
+        @bottom-center      {          content:none }
+        @bottom-right       {          content:none }
+        @bottom-right-corner{          content:none }
+    }
+    
+    /* Index page */
+    @page index {
+        @top-left-corner    {          content:none }
+        @top-left           {          content:none }
+        @top-center         {          content:none }
+        @top-right          {          content:none }
+        @top-right-corner   {          content:none }
+        @bottom-left-corner {          content:none }
+        @bottom-left        {          content:none }
+        @bottom-center      {          content:none }
+        @bottom-right       {          content:none }
+        @bottom-right-corner{          content:none }
+ }
+ @media oxygen-chemistry {
+        @page index {
+            column-count: 2;
+            column-fill: auto;
+        }
+  }
+    @page index:left {
+        @top-left-corner    {          content:none }
+        @top-left           {          content:none }
+        @top-center         {          content:none }
+        @top-right          {          content:none }
+        @top-right-corner   {          content:none }
+        @bottom-left-corner {          content:none }
+        @bottom-left        {          content:counter(page) }
+        @bottom-center      {          content:none }
+        @bottom-right       {          content:none }
+        @bottom-right-corner{          content:none }
+ }
+
+@page index:right {
+        @top-left-corner    {          content:none }
+        @top-left           {          content:none }
+        @top-center         {          content:none }
+        @top-right          {          content:none }
+        @top-right-corner   {          content:none }
+        @bottom-left-corner {          content:none }
+        @bottom-left        {          content:none }
+        @bottom-center      {          content:none }
+        @bottom-right       {          content:counter(page) }
+        @bottom-right-corner{          content:none }
+ }
+
+/* ================================================= */
+@page table-of-contents {
+    -oxy-initial-page-number: auto-odd;
+        @top-left-corner    {          content:none }
+        @top-left           {          content:none }
+        @top-center         {          content:none }
+        @top-right          {          content:none }
+        @top-right-corner   {          content:none }
+        @bottom-left-corner {          content:none }
+        @bottom-left        {          content:none }
+        @bottom-center      {          content:none }
+        @bottom-right       {          content:none }
+        @bottom-right-corner{          content:none }
+}
+
+@page table-of-contents:left {
+@top-left {
+        content: url("");
+        image-resolution: 200dpi;
+        vertical-align: bottom;
+}
+@bottom-left {
+            content: counter(page, lower-roman);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-right: -1em;
+}
+
+}
+@page table-of-contents:right {
+@top-right {
+        content: url("");
+        image-resolution: 200dpi;
+        vertical-align: bottom;
+}
+@bottom-right {
+            content: counter(page, lower-roman);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-right: -1em;
+}
+}
+/*Do not put a header on the first page of the TOC*/
+@page table-of-contents:first:left {
+@top-left {
+content: url("");
+        image-resolution: 200dpi;
+        vertical-align: bottom;
+}
+@bottom-left {
+content: counter(page, lower-roman);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-right: -1em;
+    }
+}
+
+@page table-of-contents:first:right {
+@top-right {
+        content: url("");
+        image-resolution: 200dpi;
+        vertical-align: bottom;
+}
+@bottom-left {
+content: counter(page, lower-roman);
+            font-size:8pt;
+            color:black;
+            vertical-align: top;
+            margin-top: -1em;
+            margin-right: -1em;
+    }
+}
+@media oxygen-chemistry {
+        @page table-of-contents {
+            column-count: 2;
+            column-fill: balance;
+        }
+  }

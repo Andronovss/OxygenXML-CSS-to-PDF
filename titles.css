@@ -1,0 +1,52 @@
+@media print 
+{
+    /* Настройка титулов */
+*[class ~= "topic/topic"][is-chapter]:not([is-part]) > *[class ~= "topic/title"] {
+    color:#4900db;
+    font-size: 24pt;
+    line-height: 60%;
+    padding-bottom: 1em;
+    border: none !important;
+    }
+
+*[class ~= "topic/topic"][is-chapter]:not([is-part]) > *[class ~= "topic/topic"] > *[class ~= "topic/title"] {
+    color:#4900db;
+    font-size: 20pt;
+    line-height: 40%;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border: none !important;
+    }
+
+*[class ~= "topic/topic"][is-chapter]:not([is-part]) > *[class ~= "topic/topic"] > *[class ~= "topic/topic"] > 
+*[class ~= "topic/title"] {
+    color:#4900db;
+    font-size: 18pt;
+    line-height: 20%;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border: none !important;
+    }
+
+*[class ~= "index/groups"] {
+        columns: 2;
+        column-fill: auto;
+    }
+    
+*[class ~= "index/groups"]:before {
+        display: block;
+        margin-bottom: 0.5em;
+        font-size: 24pt;
+        column-span: all;
+        color: #4900db;
+    }
+*[class ~= "index/groups"] *[class ~= "index/group"] {
+        display: block;
+    }
+    *[class ~= "index/groups"] *[class ~= "index/group"] *[class ~= "index/label"] {
+        display: block;
+        font-size: larger;
+        font-weight: bold;
+        color: #4900db;
+    }
+}

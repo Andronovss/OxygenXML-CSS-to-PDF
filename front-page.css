@@ -1,0 +1,64 @@
+/* The front page style (borders and logo). */
+@media print {
+*[class~="front-page/front-page"] {
+       page: front-page;
+    }
+    
+    @page front-page {   
+        margin: 0;
+        padding-left: 2em;
+        border: solid #4900db 0.8cm;
+        background: url("") no-repeat 1.8cm 1.8cm;
+    }
+    
+    /* The front page title style */
+*[class~='bookmap/mainbooktitle'] {
+    display: block ;
+    font-size: 30pt;
+    text-transform: uppercase;
+    font-style: normal;
+    color: #000000;
+    text-align: left;
+    margin-top: 5cm;
+}
+
+/* The front page titlealt style */
+*[class~='bookmap/booktitlealt'] {
+    display: block ;
+    font-size: 18pt;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    text-align: left;
+    margin-top: 1em;
+}
+
+/* The front page version content */
+*[class ~= "bookmap/booktitle"]:after(2)
+{
+    display:block;
+    color: black;
+    font-size: 10pt;
+    font-weight: normal;
+    font-style : normal;
+    text-align: left;
+    margin-top: 10cm;
+    content: "Version "oxy_xpath('//*:front-page/bookmeta/prodinfo/vrmlist/vrm/@version')
+   "." oxy_xpath('//*:front-page/bookmeta/prodinfo/vrmlist/vrm/@release')  
+   "." oxy_xpath('//*:front-page/bookmeta/prodinfo/vrmlist/vrm/@modification');
+
+}
+
+/* The front page "Date" content */
+*[class ~= "bookmap/booktitle"]:after(3) {
+    display: block;
+    content: oxy_xpath("format-date(current-date(), '[MNn] [Y0001]', 'en', (), ())");
+    color: black;
+    font-size: 10pt;
+    font-weight: normal;
+    font-style : normal;
+    padding-top: 1em;
+    text-align: left;
+    }
+}
